@@ -31,3 +31,23 @@ class Stack:
     def is_empty(self):
         return self.size() == 0
     
+
+class Queue:
+    def __init__(self):
+        self.the_queue = []
+    
+    def enqueue(self, item):
+        self.the_queue.append(item) # add to the back
+    
+    def size(self):
+        return len(self.the_queue)
+    
+    def is_empty(self):
+        return self.size() == 0
+    
+    def dequeue(self):
+        if self.is_empty():
+            return None
+        
+        item = self.the_queue.pop(0)
+        return item
