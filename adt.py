@@ -105,3 +105,29 @@ class LinkedList:
         # built in comparison
         # current != data instead of current.get_data() != data
         # Do this last!
+
+    def size(self):
+        count = 0
+        current = self.head
+        while current != None:
+            count += 1
+            current = current.get_next()
+        
+        return count
+    # Challenge! Change the class and this method to 
+    # make this function O(1). It's currently O(N)
+
+    def remove(self, data):
+        if self.head == None:
+            return
+        
+        if self.head.get_data() == data:
+            self.head = self.head.get_next()
+        
+        current = self.head
+        while current.get_next() != None and current.get_next().get_data() != data:
+            current = current.get_next()
+        
+        if current.get_next() != None:
+            current.set_next(current.get_next().get_next())
+        
