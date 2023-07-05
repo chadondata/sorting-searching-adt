@@ -100,4 +100,8 @@ class LinkedList:
         while current != None and current.get_data() != data:
             current = current.get_next()
         
-        
+        return current != None
+        # Change the Node class and this method to utilize
+        # built in comparison
+        # current != data instead of current.get_data() != data
+        # Do this last!
