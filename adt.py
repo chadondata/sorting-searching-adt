@@ -51,3 +51,31 @@ class Queue:
         
         item = self.the_queue.pop(0)
         return item
+    
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+    
+    def get_data(self):
+        return self.data
+    def get_next(self):
+        return self.next
+    def set_data(self, data):
+        if data == None:
+            return
+        
+        self.data = data
+    def set_next(self, next):
+        self.next = next
+
+    def __eq__(self, other):
+        return self.get_data() == other.get_data()
+    
+    def __gt__(self, other):
+        return self.get_data() > other.get_data()
+    
+    def __str__(self):
+        return str(self.get_data())
+    
+    
