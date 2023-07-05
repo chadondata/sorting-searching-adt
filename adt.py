@@ -78,4 +78,26 @@ class Node:
     def __str__(self):
         return str(self.get_data())
     
+class LinkedList:
+    def __init__(self):
+        self.head = None
     
+    def append(self, data):
+        # check for empty list
+        if self.head == None:
+            self.head = Node(data)
+            return
+        
+        current = self.head
+        while current.get_next() != None:
+            current = current.get_next()
+        current.set_next(Node(data))
+        # Modify this class and function to be O(1)
+        # ( It's currently O(N) )
+
+    def find(self, data):
+        current = self.head
+        while current != None and current.get_data() != data:
+            current = current.get_next()
+        
+        
