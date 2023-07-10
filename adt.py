@@ -70,9 +70,15 @@ class Node:
         self.next = next
 
     def __eq__(self, other):
+        if not isinstance(other, Node):
+            return False
+        
         return self.get_data() == other.get_data()
     
     def __gt__(self, other):
+        if not isinstance(other, Node):
+            return False
+
         return self.get_data() > other.get_data()
     
     def __str__(self):
@@ -81,20 +87,21 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
+        self._size = 0
     
     def append(self, data):
         # check for empty list
         if self.head == None:
             self.head = Node(data)
+            self.tail = self.head 
+            self._size = 1
             return
         
-        current = self.head
-        while current.get_next() != None:
-            current = current.get_next()
-        current.set_next(Node(data))
-        # Modify this class and function to be O(1)
-        # ( It's currently O(N) )
-
+        self.tail.set_next(Node(data))
+        self.tail = self.tail.get_next()
+        self._size += 1
+        
     def find(self, data):
         current = self.head
         while current != None and current.get_data() != data:
@@ -107,22 +114,17 @@ class LinkedList:
         # Do this last!
 
     def size(self):
-        count = 0
-        current = self.head
-        while current != None:
-            count += 1
-            current = current.get_next()
-        
-        return count
-    # Challenge! Change the class and this method to 
-    # make this function O(1). It's currently O(N)
+        return self._size
 
     def remove(self, data):
+        # Oh no! this function is broken. Can you fix it?
         if self.head == None:
             return
         
         if self.head.get_data() == data:
             self.head = self.head.get_next()
+            self.size -= 1
+            return
         
         current = self.head
         while current.get_next() != None and current.get_next().get_data() != data:
@@ -130,4 +132,5 @@ class LinkedList:
         
         if current.get_next() != None:
             current.set_next(current.get_next().get_next())
+            self.size -= 1
         
