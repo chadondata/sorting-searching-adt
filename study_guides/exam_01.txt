@@ -1,0 +1,112 @@
+Study Guide: Exam 1
+
+Stacks and Queues
+The access to a stack is in which order:
+Last in, First out <---
+First in, First out
+For stacks, think of a tall stack of dinner plates. When you put a new one on, it goes on top. When you take one off, you pull from the top.
+
+The access to a queue is in which order:
+Last in, Frst out
+First in, First out <--
+For queues, think of Chad's Lemonade stand. "First come, first served." The first one on the queue (in the line) is the first one to get Lemonade. Any new people go to the back of the line!
+
+Assume s is a n empty stack. What is printed to the console by the print function at the end?
+s.push('A')
+s.push('B')
+s.push('C')
+s.pop()
+s.push('D')
+s.push('E')
+s.pop()
+s.push('F')
+s.push('G')
+s.pop()
+print(s.pop())
+
+Answer: F
+
+Assume q is an empty queue. What is printed to the console by the print function at the end?
+q.enqueue('A')
+q.enqueue('B')
+q.dequeue()
+q.enqueue('C')
+q.enqueue('D')
+q.dequeue()
+q.enqueue('E')
+q.dequeue()
+q.enqueue('F')
+q.dequeue()
+q.enqueue('G')
+q.dequeue()
+print(q.dequeue())
+
+Answer: F
+
+Time Complexity
+What is the worst-case time complexity of the following algorithm for finding a person's name in a list, p (assume p is a list of people's names previously filled)
+
+n = input('Which name would you like to find?')
+found = False
+for i in p:
+    if i == n:
+        found = True
+        break
+
+print(found)
+
+Answer: O(N) aka linear time
+
+What is the worst-case time complexity of the following algortihm for accessing an array of values (assume v is a list of values previously filled)
+
+n = int(input('Which array element would you like to see?'))
+print(v[n])
+
+Answer: O(1) aka constant time
+
+
+Which algorithm time complexity would be fastest for counting a list of 1000 values?
+Linear time, O(N)
+Constant time, O(1)
+They're both the same
+
+Answer: Constant time O(1)
+
+Which algorithm time complexity would be fastest for counting a list of 1 value?
+Linear time, O(N)
+Constant time, O(1)
+They're both the same
+
+Answer: They're both the same
+
+Linked Lists
+Assume an unordered linked list already has 100,000 valid nodes in it. Functions A and B below both append to the end of the list. Which is faster?
+
+def A(self, data):
+    if self.head is None:
+        self.head = Node(data)
+        return
+
+    current = self.head
+    while current.get_next() is not None:
+        curent = current.get_next()
+    
+    current.set_next(Node(data))
+
+def B(self, data):
+    if self.head is None:
+        self.head = Node(data)
+        self.tail = self.head
+        return
+
+    self.tail.set_next(Node(data))
+    self.tail = self.tail.get_next()
+
+Answer: B. Can you guess why?
+
+Which of these is a benefit to using a linked list instead of an array? (Choose all that apply)
+a. Dynamic sizing
+b. No need for contiguous memory allocation
+c. Indexed access to item data in the list
+
+Answer: a and b. 
