@@ -65,14 +65,14 @@ print(v[n])
 Answer: O(1) aka constant time
 
 
-Which algorithm time complexity would be fastest for counting a list of 1000 values?
+Which algorithm time complexity would be fastest for obtaining the size of a list of 1000 values?
 Linear time, O(N)
 Constant time, O(1)
 They're both the same
 
 Answer: Constant time O(1)
 
-Which algorithm time complexity would be fastest for counting a list of 1 value?
+Which algorithm time complexity would be fastest for obtaining the size of a list of 1 value?
 Linear time, O(N)
 Constant time, O(1)
 They're both the same
