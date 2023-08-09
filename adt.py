@@ -133,4 +133,9 @@ class LinkedList:
         if current.get_next() != None:
             current.set_next(current.get_next().get_next())
             self.size -= 1
+
+
+class OrderedLinkedList(LinkedList):
+    def __init__(self):
+        super().__init__()
         
